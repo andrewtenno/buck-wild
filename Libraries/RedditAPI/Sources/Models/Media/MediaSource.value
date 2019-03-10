@@ -1,0 +1,4 @@
+MediaSource {
+    Media *source
+    NSArray<Media *> *resolutions
+}

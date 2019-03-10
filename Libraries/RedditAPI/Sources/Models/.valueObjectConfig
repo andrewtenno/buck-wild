@@ -1,0 +1,6 @@
+{
+  "defaultIncludes": [
+    "RMAssumeNonnull",
+    "RMSubclassingRestricted"
+  ]
+}

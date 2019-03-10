@@ -1,0 +1,5 @@
+Gildings includes(RMBuilder) {
+  NSUInteger silver
+  NSUInteger gold
+  NSUInteger platinum
+}

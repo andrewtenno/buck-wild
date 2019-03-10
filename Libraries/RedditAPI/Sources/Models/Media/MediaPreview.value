@@ -1,0 +1,5 @@
+MediaPreview {
+  MediaSource *preview
+  MediaVariants *variants
+  NSString *id
+}

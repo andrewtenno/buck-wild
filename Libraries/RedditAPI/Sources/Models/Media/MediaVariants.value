@@ -1,0 +1,6 @@
+MediaVariants {
+  MediaSource *obfuscated
+  MediaSource *nsfw
+  MediaSource *gif
+  MediaSource *mp4
+}

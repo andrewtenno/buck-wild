@@ -1,0 +1,5 @@
+Media {
+  CGFloat width
+  CGFloat height
+  NSURL *url
+}

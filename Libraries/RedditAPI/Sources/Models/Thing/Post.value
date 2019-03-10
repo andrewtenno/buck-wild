@@ -1,0 +1,7 @@
+ Post includes(RMBuilder) {
+  NSString *subreddit
+  NSString *selfText
+  NSString *authorFullname
+  Gildings *gildings
+  MediaPreview *mediaPreview
+ }
