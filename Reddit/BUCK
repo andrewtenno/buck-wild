@@ -9,7 +9,7 @@ apple_binary(
 )
 
 apple_bundle(
-  name = 'AppBundle',
+  name = 'Reddit',
   binary = ':AppBinary',
   extension = 'app',
   info_plist = 'Info.plist',
@@ -17,14 +17,14 @@ apple_bundle(
 )
 
 apple_package(
-  name = "Reddit",
-  bundle = ":AppBundle",
+  name = "RedditApp",
+  bundle = ":Reddit",
 )
 
 xcode_workspace_config(
   name = "workspace",
   workspace_name = "Reddit",
-  src_target = ":AppBundle",
+  src_target = ":Reddit",
   additional_scheme_actions = {
       "Build": {
           "PRE_SCHEME_ACTIONS": ["echo 'Started'"],

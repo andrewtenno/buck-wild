@@ -2,10 +2,10 @@
 .PHONY : build, project, clean
 
 build:
-	buck build Reddit:AppBundle
+	buck build Reddit:Reddit
 
 run:
-	buck install --run Reddit:AppBundle
+	buck install --run Reddit:Reddit
 
 project:
 	buck project //Reddit:workspace
