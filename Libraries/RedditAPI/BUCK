@@ -1,15 +1,28 @@
 load('//Config:configs.bzl', 'library_configs', 'info_plist_substitutions')
+load('//Config:remodel.bzl', 'generate_objc_filenames', 'copy_out_of_genrule', 'exported_headers_from_filenames', 'srcs_from_filenames')
+
+VALUE_DEFINITIONS = glob([ 'Sources/Remodel/**/*.value' ])
+OBJC_FILENAMES = generate_objc_filenames(VALUE_DEFINITIONS)
+
+genrule(
+  name = 'generate_models',
+  srcs = VALUE_DEFINITIONS,
+  bash = 'remodel-gen $SRCDIR; mkdir $OUT; find -P $SRCDIR \( -name \'*.h\' -o -name \'*.m\' \) -exec cp {} $OUT/ \;',
+  out = 'GeneratedSources/',
+  executable = True,
+)
+
+copy_out_of_genrule('generate_models', OBJC_FILENAMES)
 
 apple_library(
   name = 'RedditAPI',
   modular = True,
   configs = library_configs(),
-  exported_headers = glob([
-    'Sources/**/*.h',
-  ]),
-  srcs = glob([
-    'Sources/**/*.m',
-  ]),
+  exported_headers = [':' + x for x in exported_headers_from_filenames(OBJC_FILENAMES)],
+  srcs = [':' + x for x in srcs_from_filenames(OBJC_FILENAMES)],
+  deps = [
+    ':generate_models'
+  ],
   extra_xcode_files = [
     'RedditAPI.modulemap',
   ],
