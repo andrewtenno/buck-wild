@@ -7,16 +7,18 @@
 //
 
 import UIKit
+import RedditAPI
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
+
         self.view.backgroundColor = .red
+
+        let gildings = Gildings(silver: 0, gold: 1, platinum: 2)
     }
 
 
 }
-

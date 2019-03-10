@@ -6,6 +6,9 @@ apple_binary(
   srcs = glob([
     'Sources/*.swift',
   ]),
+  deps = [
+    '//Libraries/RedditAPI:RedditAPI',
+  ]
 )
 
 apple_bundle(
