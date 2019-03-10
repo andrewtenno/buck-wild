@@ -9,7 +9,6 @@ genrule(
   srcs = VALUE_DEFINITIONS,
   bash = 'remodel-gen $SRCDIR; mkdir $OUT; find -P $SRCDIR \( -name \'*.h\' -o -name \'*.m\' \) -exec cp {} $OUT/ \;',
   out = 'GeneratedSources/',
-  executable = True,
 )
 
 copy_out_of_genrule('generate_models', OBJC_FILENAMES)
