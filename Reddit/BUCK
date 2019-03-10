@@ -1,0 +1,31 @@
+apple_binary(
+  name = 'AppBinary',
+  srcs = glob([
+    'Sources/*.swift',
+  ]),
+)
+
+apple_bundle(
+  name = 'AppBundle',
+  binary = ':AppBinary',
+  extension = 'app',
+  info_plist = 'Info.plist',
+)
+
+apple_package(
+  name = "Reddit",
+  bundle = ":AppBundle",
+)
+
+xcode_workspace_config(
+  name = "workspace",
+  workspace_name = "Reddit",
+  src_target = ":AppBundle",
+  additional_scheme_actions = {
+      "Build": {
+          "PRE_SCHEME_ACTIONS": ["echo 'Started'"],
+          "POST_SCHEME_ACTIONS": ["echo 'Finished'"],
+      },
+  },
+  action_config_names = {"profile": "Profile"},
+)

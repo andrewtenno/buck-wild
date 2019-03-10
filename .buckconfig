@@ -1,0 +1,17 @@
+[cxx]
+  default_platform = iphonesimulator-x86_64
+  cflags = -g -fmodules -fobjc-arc -D BUCK -w
+  combined_preprocess_and_compile = true
+
+[swift]
+  version = 4.2
+
+[apple]
+  use_header_maps_in_xcode = false
+  generate_missing_umbrella_headers = true
+
+[project]
+  ide_force_kill = always
+  ide = xcode
+  project_schemes = true
+  ignore = .git
